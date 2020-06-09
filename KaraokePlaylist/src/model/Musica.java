@@ -31,4 +31,7 @@ public class Musica {
 		return nota;
 	}
 
+	public Cantor getCantor() {
+		return cantor;
+	}
 }
