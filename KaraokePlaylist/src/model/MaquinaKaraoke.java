@@ -8,6 +8,16 @@ public class MaquinaKaraoke {
 	Scanner scan = new Scanner(System.in);
 	Scanner scan2 = new Scanner(System.in);
 	Playlist playlist = new Playlist();
+	private ArrayList<Musica> listaDeMusicas = new ArrayList<>();
+	
+	// lista de musicas
+	
+	//listaDeMusicas.add(new Musica(1, "NAV", 0, null, "Jovem Dex", (float) 2.43));
+	
+	
+	
+	Musica robbers = new Musica(2, "Robbers", 0, null, "The 1975", (float) 4.32);
+	
 	
 	private int escolha;
 	private int repetir = 1;
