@@ -6,7 +6,7 @@ public class Teste {
 	public static void main(String[] args) {
 
 		MaquinaKaraoke x = new MaquinaKaraoke();
-		x.menu();
+	
 
 	}
 }
