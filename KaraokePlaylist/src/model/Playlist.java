@@ -16,9 +16,9 @@ public class Playlist {
 		String nomeCantor = scan.nextLine();
 		Cantor cantor = new Cantor(nomeCantor);
 		
-		System.out.println("Digite o nome de uma musica");
-		String nomeMusica = scan.nextLine();
-		musica.add(new Musica(nomeMusica, Validacoes.darNota(), cantor));
+		System.out.println("Digite o nome de uma musica");						/* acho q é mais facil usar o codigo */
+		String nomeMusica = scan.nextLine();								    /*     da musica como parametro      */
+		// musica.add(new Musica(nomeMusica, Validacoes.darNota(), cantor));   comentei essa linha pq ta dando erro
 		
 		System.out.println("o cantor " + cantor.getNome() + " pediu a musica: " + nomeMusica + " foi adicionada na playlist");
 	}

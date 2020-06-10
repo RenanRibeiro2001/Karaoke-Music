@@ -8,7 +8,7 @@ public class Validacoes {
 
 	public static int darNota() {
 
-		return numeroAleatorio.nextInt(5) + 1;
+		return numeroAleatorio.nextInt(101);
 
 	}
 

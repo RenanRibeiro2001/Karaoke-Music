@@ -10,12 +10,12 @@ public class MaquinaKaraoke {
 	Playlist playlist = new Playlist();
 	
 	private int escolha;
-	private int repitir = 1;
+	private int repetir = 1;
 	
 	public void menu() {
-		while (repitir == 1) {
+		while (repetir == 1) {
 			System.out.println("Bem-Vindo a Maquina de Karaoke");
-			System.out.println("1) Adicionar Musica");
+			System.out.println("1) Adicionar Musica na Playlist"); // ele nao cria uma nova musica, apenas adiciona uma existente na playlist
 			System.out.println("2) Ver Musicas Playlist");
 			System.out.println("3) Sair");
 			escolha = scan.nextInt();
@@ -27,7 +27,7 @@ public class MaquinaKaraoke {
 				playlist.mostrarMusicasPlaylist();
 				break;
 			case 3:
-				repitir = 0;
+				repetir = 0;
 				break;
 			}
 		}
