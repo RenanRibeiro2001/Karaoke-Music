@@ -5,11 +5,17 @@ public class Musica {
 	private String nomeMusica;
 	private	int nota;
 	private Cantor cantor;
-	
-	public Musica(String nomeMusica, int nota, Cantor cantor) {
+	private String artista;
+	private float tempoDeDuracaoEmMinutos;
+	private int codigo;
+		
+	public Musica(int codigo, String nomeMusica, int nota, Cantor cantor, String artista, float tempoDeDuracaoEmMinutos) {
 		this.cantor = cantor;
 		this.nomeMusica = nomeMusica;
 		this.nota = nota;
+		this.artista = artista;
+		this.tempoDeDuracaoEmMinutos = tempoDeDuracaoEmMinutos;
+		this.codigo = codigo;
 		nota = 0;
 	}
 
