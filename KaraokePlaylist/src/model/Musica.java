@@ -8,7 +8,7 @@ public class Musica {
 	private String nomeMusica;
 	private String artista;
 	
-	public Musica(int codigo, int nota, double tempoDeDuracao, String nomeMusica, String artista) {
+	public Musica(int codigo, String nomeMusica, String artista, double tempoDeDuracao,int nota) {
 		this.codigo = codigo;
 		this.nota = nota;
 		this.tempoDeDuracao = tempoDeDuracao;
@@ -18,5 +18,13 @@ public class Musica {
 
 	public String getNomeMusica() {
 		return nomeMusica;
+	}
+	
+	public int getNota() {
+		return nota;
+	}
+	
+	public int getCodigo() {
+		return codigo;
 	}
 }
