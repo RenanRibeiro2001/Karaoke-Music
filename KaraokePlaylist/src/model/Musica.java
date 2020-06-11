@@ -7,6 +7,7 @@ public class Musica {
 	private double tempoDeDuracao;
 	private String nomeMusica;
 	private String artista;
+	private Cantor cantor;
 	
 	public Musica(int codigo, String nomeMusica, String artista, double tempoDeDuracao,int nota) {
 		this.codigo = codigo;
@@ -26,5 +27,20 @@ public class Musica {
 	
 	public int getCodigo() {
 		return codigo;
+	}
+	public Cantor getCantor() {
+		return cantor;
+	}
+	public String getArtista() {
+		return artista;
+	}
+	 
+	public void setCantor(Cantor cantor) {
+
+		this.cantor = cantor;
+	}
+	
+	public void setNota(int nota) {
+		this.nota = nota;
 	}
 }
