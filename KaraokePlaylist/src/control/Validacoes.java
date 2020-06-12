@@ -15,7 +15,7 @@ public class Validacoes {
 	public boolean validarMusica(int num1, int num2) {
 		boolean a = false;
 		
-		if(num1 >= num2) {
+		if(num1 <= num2) {
 			a = true;
 			
 		}
