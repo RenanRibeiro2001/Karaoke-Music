@@ -47,7 +47,7 @@ public class Playlist {
 	
 	public boolean adiantarMusica(Musica musica) {
 		
-		for (int i = 0; i <= playlist.size(); i++) {
+		for (int i = 0; i < playlist.size(); i++) {
 			if(musica == playlist.get(i)) {
 				if(i == 0) {
 					return false;
@@ -73,15 +73,16 @@ public class Playlist {
 
 		if(!playlist.isEmpty())	{
 		
-			for (int i = 0; i <= playlist.size(); i++) {
-				System.out.println((i+1) + " - " + playlist.get(i).getNomeMusica() + " - " + playlist.get(i).getCantor());
+			for (int i = 0; i < playlist.size(); i++) {
+				System.out.println((i+1) + " - " + playlist.get(i).getNomeMusica() + " - " + playlist.get(i).getCantor().getNome() +
+						" - Maior nota da musica: " + playlist.get(i).getMaiorNota());
 			}
 		}
 	}
 
 	public void tocarMusica() {
 	
-		System.out.println(playlist.get(0).getCantor() + " está cantando " + playlist.get(0).getNomeMusica());
+		System.out.println(playlist.get(0).getCantor().getNome() + " está cantando " + playlist.get(0).getNomeMusica());
 	}
 	
 	public int tamanhoPlaylist() {

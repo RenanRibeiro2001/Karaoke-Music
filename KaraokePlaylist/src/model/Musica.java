@@ -8,6 +8,8 @@ public class Musica {
 	private String nomeMusica;
 	private String artista;
 	private Cantor cantor;
+	private int maiorNota;
+	
 	
 	public Musica(int codigo, String nomeMusica, String artista, double tempoDeDuracao,int nota) {
 		this.codigo = codigo;
@@ -41,6 +43,14 @@ public class Musica {
 	}
 	
 	public void setNota(int nota) {
+		if(nota > maiorNota) {
+			maiorNota = nota;
+		}
+		
 		this.nota = nota;
+	}
+	
+	public int getMaiorNota() {
+		return maiorNota;
 	}
 }

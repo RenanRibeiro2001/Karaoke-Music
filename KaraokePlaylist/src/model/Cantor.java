@@ -11,9 +11,14 @@ public class Cantor {
 	//private int[] notas = new int[10];
 	//private int ultimaNota;
 	
+	public String getNome() {
+		return nome;
+	}
+
 	public Cantor(String nome) {
 		this.nome = nome;
 	}
+	
 	
 	/*public void receberNovaNota(int nota) {
 
