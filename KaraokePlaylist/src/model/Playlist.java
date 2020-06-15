@@ -11,7 +11,7 @@ public class Playlist {
 	public Playlist(){
 		
 	}
-	
+	Validacoes validacoes = new Validacoes();
 	private ArrayList<Musica> playlist = new ArrayList<Musica>();
 	
 	public void adicionarMusicaNaPlaylist(Musica musica, String cantor) {
@@ -30,8 +30,10 @@ public class Playlist {
 	
 	public void atrasarMusica(Musica musica) {
 		
-		for (int i = 0; i <= playlist.size(); i++) {
+		boolean entreiNoIf = false;
+		for (int i = 0; i < playlist.size(); i++) {
 			if(musica == playlist.get(i)) {
+				entreiNoIf = true;
 				if(i == playlist.size()-1) {
 					break;
 				}
@@ -39,45 +41,87 @@ public class Playlist {
 					playlist.remove(musica);
 				}
 			}
-			else {
+			if(!entreiNoIf) {
 				System.out.println("Essa musica nao está na playlist");
 			}
 		}
 	}
 	
-	public boolean adiantarMusica(Musica musica) {
+	public void adiantarMusica(int numeroMusica) {
 		
-		for (int i = 0; i < playlist.size(); i++) {
-			if(musica == playlist.get(i)) {
-				if(i == 0) {
-					return false;
-				}
-				else {
-					playlist.remove(musica);
-					
-				}
+		if(numeroMusica <= playlist.size()) {
+			if(numeroMusica - 1 == 0) {
+				System.out.println("Você não pode adiantar a primeira Música!");
 			}
 			else {
-				System.out.println("Essa musica nao está na playlist");
-				return false;
+				tocarMusicaEspecifica(playlist.get(numeroMusica-1));
+				playlist.remove(numeroMusica-1);
 			}
 		}
-		return true;
+		
+		/*
+		boolean entreiNoIf = false;
+		for (int i = 0; i < playlist.size(); i++) {
+			if(playlist.get(i).getCodigo() == numeroMusica - 1) {
+				entreiNoIf = true;
+				if(i == 0) {
+					System.out.println("Você não pode adiantar a primeira musica");
+				}
+				else {
+					tocarMusicaEspecifica(playlist.get(i));
+					playlist.remove(i);
+				}
+			}
+		}
+		if(!entreiNoIf) {
+			System.out.println("Essa Mùsica não está na Playlist");
+		}
+		
+		*/
+		
+		//boolean entreiNoIf = false;
+		//for (int i = 0; i < playlist.size(); i++) {
+		//	if(musica == playlist.get(i)) {
+		//		entreiNoIf = true;
+		//		if(i == 0) {
+		//			return false;
+		//		}
+		//		else {
+		//			playlist.remove(musica);
+		//			
+		//		}
+		//	}
+		//	if(!entreiNoIf) {
+		//		System.out.println("Essa musica nao está na playlist");
+		//		return false;
+		//	}
+		//}
+		//return true;
 	}
 
 	public void tocarMusicaEspecifica(Musica musica) {
-		System.out.println(musica.getCantor() + " está cantando " + musica.getNomeMusica());
+		System.out.println(musica.getCantor().getNome() + " está cantando " + musica.getNomeMusica());
+		musica.setNota(validacoes.darNota());
+		System.out.println("nota: " + musica.getNota());
+		System.out.println();
 	}
 	
 	public void mostrarMusicasDaPlaylist() {
-
+		System.out.println("Proxima(s) Música(s):");
 		if(!playlist.isEmpty())	{
 		
 			for (int i = 0; i < playlist.size(); i++) {
+				System.out.println();
 				System.out.println((i+1) + " - " + playlist.get(i).getNomeMusica() + " - " + playlist.get(i).getCantor().getNome() +
 						" - Maior nota da musica: " + playlist.get(i).getMaiorNota());
+				//System.out.println("Primeira música: " + playlist.get(i).getNomeMusica());
 			}
 		}
+		else {
+			System.out.println("Playlist Vazia");
+			System.out.println();
+		}
+		System.out.println();
 	}
 
 	public void tocarMusica() {

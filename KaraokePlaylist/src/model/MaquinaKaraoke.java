@@ -87,11 +87,11 @@ public class MaquinaKaraoke {
 				break;
 				
 			case 3:
-				int x = 0;
-				while(x != playlist.tamanhoPlaylist()) {
+				int index = 0;
+				while(index != playlist.tamanhoPlaylist()) {
 					playlist.tocarMusica();
-					musicas.get(x).setNota(validacoes.darNota());
-					System.out.println("nota: " + musicas.get(x).getNota());
+					musicas.get(index).setNota(validacoes.darNota());
+					System.out.println("nota: " + musicas.get(index).getNota());
 					playlist.acabouAMusica();
 					playlist.mostrarMusicasDaPlaylist();
 					System.out.println();
@@ -99,29 +99,25 @@ public class MaquinaKaraoke {
 					System.out.println("1) Não");
 					System.out.println("2) Sim");
 					System.out.println();
-					int y = scan.nextInt();
-					if(y == 1) {
-						x++;
+					int fazerOuNaoAlteracoesNaPlaylist = scan.nextInt();
+					if(fazerOuNaoAlteracoesNaPlaylist == 1) {
+						index++;
 					}
-					else if(y == 2) {
+					else if(fazerOuNaoAlteracoesNaPlaylist == 2) {
 						System.out.println();
 						System.out.println("1) Adiantar Musica");
 						System.out.println("2) Atrasar Musica");
 						System.out.println();
-						int z = scan.nextInt();
-						if(z == 1) {
-							mostrarMusicas();
+						int atrasarOuAdiantarMusica = scan.nextInt();
+						if(atrasarOuAdiantarMusica == 1) {
 							System.out.println();
-							System.out.println("Digite o codigo da musica que deseja adiantar");
+							System.out.println("Digite o numero da Música que deseja adiantar");
 							System.out.println();
-							int codigo = scan.nextInt();
-							if(playlist.adiantarMusica(musicas.get(codigo))) {
-								playlist.tocarMusicaEspecifica(musicas.get(codigo));								
-							}
-							playlist.mostrarMusicasDaPlaylist();
+							int codigo = scan2.nextInt();
+							playlist.adiantarMusica(codigo);
+							System.out.println();
 						}
-						else if(z == 2) {
-							mostrarMusicas();
+						else if(atrasarOuAdiantarMusica == 2) {
 							System.out.println();
 							System.out.println("Digite o codigo da musica que deseja atrasar");
 							System.out.println();
@@ -129,7 +125,7 @@ public class MaquinaKaraoke {
 							playlist.atrasarMusica(musicas.get(codigo));
 						}
 						playlist.mostrarMusicasDaPlaylist();
-						x++;
+						index++;
 					}
 				}
 				break;
