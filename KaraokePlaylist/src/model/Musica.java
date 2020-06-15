@@ -11,9 +11,9 @@ public class Musica {
 	private int maiorNota;
 	
 	
-	public Musica(int codigo, String nomeMusica, String artista, double tempoDeDuracao,int nota) {
+	public Musica(int codigo, String nomeMusica, String artista, double tempoDeDuracao,int maiorNota) {
 		this.codigo = codigo;
-		this.nota = nota;
+		this.maiorNota = maiorNota;
 		this.tempoDeDuracao = tempoDeDuracao;
 		this.nomeMusica = nomeMusica;
 		this.artista = artista;
