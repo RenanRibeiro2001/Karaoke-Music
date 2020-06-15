@@ -23,7 +23,7 @@ public class MaquinaKaraoke {
 		musicas.add(new Musica(3, "Love and Choppa", "NGC Daddy", 2.30, 90));
 		musicas.add(new Musica(4, "Drink", "Sidoka", 2.20, 80));
 		musicas.add(new Musica(5, "La Chica", "NGC Daddy", 3.10, 98));
-		musicas.add(new Musica(6, "AK do Flamengo", "NGC Borges", 2.30, 70)); // to ouvindo renan
+		musicas.add(new Musica(6, "AK do Flamengo", "NGC Borges", 2.30, 70));
 		musicas.add(new Musica(7, "Flow 07", "Sidoka", 3.40, 90));
 		musicas.add(new Musica(8, "Robbers", "The 1975", 4.20, 75));
 		musicas.add(new Musica(9, "Espiã", "Sidoka", 2.10, 90));
