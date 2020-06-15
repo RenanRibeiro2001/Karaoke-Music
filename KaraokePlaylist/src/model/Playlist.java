@@ -28,9 +28,21 @@ public class Playlist {
 		
 	}
 	
-	public void atrasarMusica(Musica musica) {
+	public void atrasarMusica(int numeroMusica) {
 		
-		boolean entreiNoIf = false;
+		if(numeroMusica <= playlist.size()) {
+			if(numeroMusica - 1 == playlist.size()) {
+				System.out.println("Você não pode adiar a ultima música");
+			}
+			else {
+				Musica temp = playlist.get(numeroMusica-1);
+				playlist.remove(numeroMusica-1);
+				playlist.add(temp);
+			}
+		}
+		
+		
+		/*boolean entreiNoIf = false;
 		for (int i = 0; i < playlist.size(); i++) {
 			if(musica == playlist.get(i)) {
 				entreiNoIf = true;
@@ -45,6 +57,7 @@ public class Playlist {
 				System.out.println("Essa musica nao está na playlist");
 			}
 		}
+		*/
 	}
 	
 	public void adiantarMusica(int numeroMusica) {
@@ -58,45 +71,6 @@ public class Playlist {
 				playlist.remove(numeroMusica-1);
 			}
 		}
-		
-		/*
-		boolean entreiNoIf = false;
-		for (int i = 0; i < playlist.size(); i++) {
-			if(playlist.get(i).getCodigo() == numeroMusica - 1) {
-				entreiNoIf = true;
-				if(i == 0) {
-					System.out.println("Você não pode adiantar a primeira musica");
-				}
-				else {
-					tocarMusicaEspecifica(playlist.get(i));
-					playlist.remove(i);
-				}
-			}
-		}
-		if(!entreiNoIf) {
-			System.out.println("Essa Mùsica não está na Playlist");
-		}
-		
-		*/
-		
-		//boolean entreiNoIf = false;
-		//for (int i = 0; i < playlist.size(); i++) {
-		//	if(musica == playlist.get(i)) {
-		//		entreiNoIf = true;
-		//		if(i == 0) {
-		//			return false;
-		//		}
-		//		else {
-		//			playlist.remove(musica);
-		//			
-		//		}
-		//	}
-		//	if(!entreiNoIf) {
-		//		System.out.println("Essa musica nao está na playlist");
-		//		return false;
-		//	}
-		//}
-		//return true;
 	}
 
 	public void tocarMusicaEspecifica(Musica musica) {
@@ -131,5 +105,9 @@ public class Playlist {
 	
 	public int tamanhoPlaylist() {
 		return playlist.size();
+	}
+	
+	public boolean playlistVazia() {
+		return playlist.isEmpty();
 	}
 }

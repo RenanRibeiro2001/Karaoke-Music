@@ -28,12 +28,12 @@ public class MaquinaKaraoke {
 		musicas.add(new Musica(8, "Robbers", "The 1975", 4.20, 75));
 		musicas.add(new Musica(9, "Espiã", "Sidoka", 2.10, 90));
 		
-		mostrarMusicas();	
+		mostrarCatalogo();	
 		menu();
 		
 	}
 	
-	public void mostrarMusicas(){
+	public void mostrarCatalogo(){
 		for (int i = 0; i < musicas.size(); i++) {
 			System.out.println(musicas.get(i).getCodigo() + " - " + musicas.get(i).getNomeMusica());
 		}
@@ -48,7 +48,7 @@ public class MaquinaKaraoke {
 			System.out.println("1) Adicionar Musica na Playlist"); 
 			System.out.println("2) Ver Musicas na Playlist");
 			System.out.println("3) Tocar Playlist");
-			System.out.println("4) Mostrar Opções de Musicas");
+			System.out.println("4) Mostrar Catalogo");
 			System.out.println("5) Sair");
 			System.out.println();
 			escolha = scan.nextInt();
@@ -88,50 +88,58 @@ public class MaquinaKaraoke {
 				
 			case 3:
 				int index = 0;
-				while(index != playlist.tamanhoPlaylist()) {
-					playlist.tocarMusica();
-					musicas.get(index).setNota(validacoes.darNota());
-					System.out.println("nota: " + musicas.get(index).getNota());
-					playlist.acabouAMusica();
-					playlist.mostrarMusicasDaPlaylist();
-					System.out.println();
-					System.out.println("Deseja fazer alguma alteração na playlist?");
-					System.out.println("1) Não");
-					System.out.println("2) Sim");
-					System.out.println();
-					int fazerOuNaoAlteracoesNaPlaylist = scan.nextInt();
-					if(fazerOuNaoAlteracoesNaPlaylist == 1) {
-						index++;
-					}
-					else if(fazerOuNaoAlteracoesNaPlaylist == 2) {
-						System.out.println();
-						System.out.println("1) Adiantar Musica");
-						System.out.println("2) Atrasar Musica");
-						System.out.println();
-						int atrasarOuAdiantarMusica = scan.nextInt();
-						if(atrasarOuAdiantarMusica == 1) {
-							System.out.println();
-							System.out.println("Digite o numero da Música que deseja adiantar");
-							System.out.println();
-							int codigo = scan2.nextInt();
-							playlist.adiantarMusica(codigo);
-							System.out.println();
-						}
-						else if(atrasarOuAdiantarMusica == 2) {
-							System.out.println();
-							System.out.println("Digite o codigo da musica que deseja atrasar");
-							System.out.println();
-							int codigo = scan.nextInt();
-							playlist.atrasarMusica(musicas.get(codigo));
-						}
+				while(!playlist.playlistVazia()) {
+					if(!playlist.playlistVazia()) {
+						playlist.tocarMusica();
+						musicas.get(index).setNota(validacoes.darNota());
+						System.out.println("nota: " + musicas.get(index).getNota());
+						playlist.acabouAMusica();
 						playlist.mostrarMusicasDaPlaylist();
-						index++;
+						System.out.println();
+						System.out.println("Deseja fazer alguma alteração na playlist?");
+						System.out.println("1) Não");
+						System.out.println("2) Sim");
+						System.out.println();
+						int fazerOuNaoAlteracoesNaPlaylist = scan.nextInt();
+						if(fazerOuNaoAlteracoesNaPlaylist == 1) {
+							index++;
+						}
+						else if(fazerOuNaoAlteracoesNaPlaylist == 2) {   
+							System.out.println();
+							System.out.println("1) Adiantar Musica");
+							System.out.println("2) Atrasar Musica");
+							System.out.println();
+							int atrasarOuAdiantarMusica = scan.nextInt();
+							if(atrasarOuAdiantarMusica == 1) {        //ADIANTAR MUSICA
+								System.out.println();
+								System.out.println("Digite o numero da Música que deseja adiantar");
+								System.out.println();
+								int codigo = scan2.nextInt();
+								playlist.adiantarMusica(codigo);
+								System.out.println();
+							}
+							else if(atrasarOuAdiantarMusica == 2) {    //ATRASAR MUSICA
+								System.out.println();
+								System.out.println("Digite o numero da Música que deseja atrasar");
+								System.out.println();
+								int codigo = scan.nextInt();
+								playlist.atrasarMusica(codigo);
+							}
+							playlist.mostrarMusicasDaPlaylist();
+							index++;
+						}
+					}
+					else{
+						System.out.println();
+						System.out.println("Playlist vazia");
+						System.out.println();
+						break;
 					}
 				}
 				break;
 				
 			case 4:
-				mostrarMusicas();
+				mostrarCatalogo();
 				break;
 				
 			case 5: 
