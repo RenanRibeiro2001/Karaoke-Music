@@ -26,7 +26,7 @@ public class MaquinaKaraoke {
 		musicas.add(new Musica(6, "AK do Flamengo", "NGC Borges", 2.30, 70));
 		musicas.add(new Musica(7, "Flow 07", "Sidoka", 3.40, 90));
 		musicas.add(new Musica(8, "Robbers", "The 1975", 4.20, 75));
-		musicas.add(new Musica(9, "Espiã", "Sidoka", 2.11, 90));
+		musicas.add(new Musica(9, "Espiã", "Sidoka", 2.10, 90));
 		
 		mostrarCatalogo();	
 		menu();
