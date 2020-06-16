@@ -6,6 +6,7 @@ import control.Validacoes;
 
 public class MaquinaKaraoke {
 	private ArrayList<Musica> musicas = new ArrayList<Musica>();
+	private String escolhaTemp;
 	private int escolha;
 	Scanner scan = new Scanner(System.in);
 	Scanner scan2 = new Scanner(System.in);
@@ -27,6 +28,17 @@ public class MaquinaKaraoke {
 		musicas.add(new Musica(7, "Flow 07", "Sidoka", 3.40, 90));
 		musicas.add(new Musica(8, "Robbers", "The 1975", 4.20, 75));
 		musicas.add(new Musica(9, "Espiã", "Sidoka", 2.10, 90));
+		musicas.add(new Musica(10, "Ela Adora Veneno", "Sidoka", 3.50, 80));
+		musicas.add(new Musica(11, "É Natural", "Ferrugem", 3.10, 95));
+		musicas.add(new Musica(12, "Tem Café", "Gaab", 2.10, 70));
+		musicas.add(new Musica(13, "Espanha", "Sidoka", 2.30, 95));
+		musicas.add(new Musica(14, "Má Intenção", "Sidoka", 4.10, 90));
+		musicas.add(new Musica(15, "Godzilla", "Eminem", 3.00, 80));
+		musicas.add(new Musica(16, "Sad", "XXXTentacion", 2.00, 80));
+		musicas.add(new Musica(17, "XO Tour Llif3", "Lil Uzi Vert", 4.10, 95));
+		musicas.add(new Musica(18, "Kenny G", "Matuê", 2.50, 96));
+		musicas.add(new Musica(19, "Luxuria", "Xamã", 3.10, 85));
+		musicas.add(new Musica(20, "N.A.D.A.B.O.M.", "Costa Gold", 4.10, 90));
 		
 		mostrarCatalogo();	
 		menu();
@@ -51,7 +63,10 @@ public class MaquinaKaraoke {
 			System.out.println("4) Mostrar Catalogo");
 			System.out.println("5) Sair");
 			System.out.println();
-			escolha = scan.nextInt();
+			escolhaTemp = scan.nextLine();
+			if(validacoes.ehNumero(escolhaTemp)) {
+				escolha = Integer.parseInt(escolhaTemp);
+			}
 			
 			switch (escolha) {
 			case  1:
@@ -71,7 +86,10 @@ public class MaquinaKaraoke {
 							System.out.println("1) Não");
 							System.out.println("2) Sim");
 							System.out.println();
-							repetir = scan.nextInt();
+							escolhaTemp = scan.nextLine();
+							if(validacoes.ehNumero(escolhaTemp)) {
+								repetir = Integer.parseInt(escolhaTemp);
+							}
 						}
 						else {
 							System.out.println("Essa música não existe, tente novamente!");
@@ -114,7 +132,14 @@ public class MaquinaKaraoke {
 								System.out.println();
 								System.out.println("Digite o numero da Música que deseja adiantar");
 								System.out.println();
-								int codigo = scan2.nextInt();
+								escolhaTemp = scan2.nextLine();
+								int codigo;
+								if(validacoes.ehNumero(escolhaTemp)) {
+									codigo = Integer.parseInt(escolhaTemp);
+								}
+								else {
+									break;
+								}
 								playlist.adiantarMusica(codigo);
 								System.out.println();
 							}
@@ -122,7 +147,14 @@ public class MaquinaKaraoke {
 								System.out.println();
 								System.out.println("Digite o numero da Música que deseja atrasar");
 								System.out.println();
-								int codigo = scan.nextInt();
+								escolhaTemp = scan2.nextLine();
+								int codigo;
+								if(validacoes.ehNumero(escolhaTemp)) {
+									codigo = Integer.parseInt(escolhaTemp);
+								}
+								else {
+									break;
+								}
 								playlist.atrasarMusica(codigo);
 							}
 							playlist.mostrarMusicasDaPlaylist();
