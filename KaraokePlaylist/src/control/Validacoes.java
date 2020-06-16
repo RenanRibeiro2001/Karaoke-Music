@@ -22,5 +22,17 @@ public class Validacoes {
 		
 		 return a;
 	}
+	
+	public boolean ehNumero(String variavel) {
+		
+		for (int i = 0; i < variavel.length(); i++) {
+	          if (Character.isDigit(variavel.charAt(i))==false)
+	          {
+	              System.out.println("Digite apenas numeros!");
+	              return false;
+	          }
 
+	        }
+		return true;
+	}
 }
