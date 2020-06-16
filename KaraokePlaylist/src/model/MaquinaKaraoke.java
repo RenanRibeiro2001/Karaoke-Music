@@ -113,52 +113,54 @@ public class MaquinaKaraoke {
 						System.out.println("nota: " + musicas.get(index).getNota());
 						playlist.acabouAMusica();
 						playlist.mostrarMusicasDaPlaylist();
-						System.out.println();
-						System.out.println("Deseja fazer alguma alteração na playlist?");
-						System.out.println("1) Não");
-						System.out.println("2) Sim");
-						System.out.println();
-						int fazerOuNaoAlteracoesNaPlaylist = scan.nextInt();
-						if(fazerOuNaoAlteracoesNaPlaylist == 1) {
-							index++;
-						}
-						else if(fazerOuNaoAlteracoesNaPlaylist == 2) {   
+						if(!playlist.playlistVazia()) {
 							System.out.println();
-							System.out.println("1) Adiantar Musica");
-							System.out.println("2) Atrasar Musica");
+							System.out.println("Deseja fazer alguma alteração na playlist?");
+							System.out.println("1) Não");
+							System.out.println("2) Sim");
 							System.out.println();
-							int atrasarOuAdiantarMusica = scan.nextInt();
-							if(atrasarOuAdiantarMusica == 1) {        //ADIANTAR MUSICA
-								System.out.println();
-								System.out.println("Digite o numero da Música que deseja adiantar");
-								System.out.println();
-								escolhaTemp = scan2.nextLine();
-								int codigo;
-								if(validacoes.ehNumero(escolhaTemp)) {
-									codigo = Integer.parseInt(escolhaTemp);
-								}
-								else {
-									break;
-								}
-								playlist.adiantarMusica(codigo);
-								System.out.println();
+							int fazerOuNaoAlteracoesNaPlaylist = scan.nextInt();
+							if(fazerOuNaoAlteracoesNaPlaylist == 1) {
+								index++;
 							}
-							else if(atrasarOuAdiantarMusica == 2) {    //ATRASAR MUSICA
+							else if(fazerOuNaoAlteracoesNaPlaylist == 2) {   
 								System.out.println();
-								System.out.println("Digite o numero da Música que deseja atrasar");
+								System.out.println("1) Adiantar Musica");
+								System.out.println("2) Atrasar Musica");
 								System.out.println();
-								escolhaTemp = scan2.nextLine();
-								int codigo;
-								if(validacoes.ehNumero(escolhaTemp)) {
-									codigo = Integer.parseInt(escolhaTemp);
+								int atrasarOuAdiantarMusica = scan.nextInt();
+								if(atrasarOuAdiantarMusica == 1) {        //ADIANTAR MUSICA
+									System.out.println();
+									System.out.println("Digite o numero da Música que deseja adiantar");
+									System.out.println();
+									escolhaTemp = scan2.nextLine();
+									int codigo;
+									if(validacoes.ehNumero(escolhaTemp)) {
+										codigo = Integer.parseInt(escolhaTemp);
+									}
+									else {
+										break;
+									}
+									playlist.adiantarMusica(codigo);
+									System.out.println();
 								}
-								else {
-									break;
+								else if(atrasarOuAdiantarMusica == 2) {    //ATRASAR MUSICA
+									System.out.println();
+									System.out.println("Digite o numero da Música que deseja atrasar");
+									System.out.println();
+									escolhaTemp = scan2.nextLine();
+									int codigo;
+									if(validacoes.ehNumero(escolhaTemp)) {
+										codigo = Integer.parseInt(escolhaTemp);
+									}
+									else {
+										break;
+									}
+									playlist.atrasarMusica(codigo);
 								}
-								playlist.atrasarMusica(codigo);
+								playlist.mostrarMusicasDaPlaylist();
+								index++;
 							}
-							playlist.mostrarMusicasDaPlaylist();
-							index++;
 						}
 					}
 					else{
