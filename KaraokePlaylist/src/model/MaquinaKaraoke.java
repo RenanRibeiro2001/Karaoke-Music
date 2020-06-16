@@ -63,7 +63,7 @@ public class MaquinaKaraoke {
 			System.out.println("4) Mostrar Catalogo");
 			System.out.println("5) Sair");
 			System.out.println();
-			escolhaTemp = scan.nextLine();
+			escolhaTemp = scan2.nextLine();
 			if(validacoes.ehNumero(escolhaTemp)) {
 				escolha = Integer.parseInt(escolhaTemp);
 			}
@@ -86,7 +86,7 @@ public class MaquinaKaraoke {
 							System.out.println("1) Não");
 							System.out.println("2) Sim");
 							System.out.println();
-							escolhaTemp = scan.nextLine();
+							escolhaTemp = scan2.nextLine();
 							if(validacoes.ehNumero(escolhaTemp)) {
 								repetir = Integer.parseInt(escolhaTemp);
 							}
